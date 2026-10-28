@@ -1,6 +1,6 @@
 # Passmodell: Wie wahrscheinlich kommt ein Pass an?
 
-Case Study für das Werkstudium Data Science. Ziel ist ein Modell, das für jeden Pass die Wahrscheinlichkeit schätzt, dass er beim Mitspieler ankommt (xPass). Grundlage sind die offenen Tracking- und Eventdaten der DFL/Sportec (7 Spiele der Saison 2022/23, 2 aus der 1. und 5 aus der 2. Bundesliga). Das Hauptmodell (Zonenmodell) nutzt nur die Event-Daten; Notebook 04 erweitert es um Merkmale aus den Tracking-Daten (Empfänger-Modell).
+Ziel ist ein Modell, das für jeden Pass die Wahrscheinlichkeit schätzt, dass er beim Mitspieler ankommt (xPass). Grundlage sind die offenen Tracking- und Eventdaten der DFL/Sportec (7 Spiele der Saison 2022/23, 2 aus der 1. und 5 aus der 2. Bundesliga). Das Hauptmodell (Zonenmodell) nutzt nur die Event-Daten; Notebook 04 erweitert es um Merkmale aus den Tracking-Daten (Empfänger-Modell).
 
 ## Setup
 
@@ -14,7 +14,6 @@ pip install -r requirements.txt
 
 Die Daten ([Bassek et al. 2025, Scientific Data](https://doi.org/10.1038/s41597-025-04505-y)) werden beim ersten Ausführen über [kloppy](https://kloppy.pysport.org/user-guide/loading-data/sportec/) heruntergeladen und in `~/kloppy_cache` zwischengespeichert. Sie liegen nicht im Repository.
 
-Hinweis für macOS mit Python von python.org: Schlägt der Download mit „Input file not found“ fehl, fehlen meist die SSL-Zertifikate. Abhilfe: `Install Certificates.command` im Ordner `/Applications/Python 3.x/` ausführen.
 
 ## Ausführen
 
@@ -25,8 +24,8 @@ Im Projektordner `jupyter lab` starten und die Notebooks **in der Reihenfolge 01
 | Pfad | Inhalt |
 |---|---|
 | `notebooks/01_daten_und_definitionen.ipynb` | Überblick über Event-, Kader- und Tracking-Daten; Definition von Pass und Erfolg, Leakage-Prüfung der DFL-Angaben → `data/paesse.csv` |
-| `notebooks/02_passmodell.ipynb` | **Aufgabe 1:** schrittweiser Aufbau (Modell A, Ort linear) → Zonenmodell (Hauptmodell, 17 Merkmale); Güte, Kalibrierung, Gewichte, Beispielszenen → `data/vorhersagen_zonen.csv` |
-| `notebooks/03_anwendung.ipynb` | **Aufgabe 2:** Pässe über Erwartung je Spieler: Passquote vs. erwartete Passquote, Rangliste innerhalb der Rolle, Belastbarkeit |
+| `notebooks/02_passmodell.ipynb` | schrittweiser Aufbau (Modell A, Ort linear) → Zonenmodell (Hauptmodell, 17 Merkmale); Güte, Kalibrierung, Gewichte, Beispielszenen → `data/vorhersagen_zonen.csv` |
+| `notebooks/03_anwendung.ipynb` |Pässe über Erwartung je Spieler: Passquote vs. erwartete Passquote, Rangliste innerhalb der Rolle, Belastbarkeit |
 | `notebooks/04_erweiterung_tracking.ipynb` | **Erweiterung:** Empfänger-Modell (Zonenmodell + 4 Tracking-Merkmale), Vergleich mit dem Zonenmodell → `data/vorhersagen_empfaenger.csv` |
 | `passdaten.py` | Pass-Tabelle aus den Event-Daten: Koordinaten in Angriffsrichtung, Erfolg laut DFL, DFL-Rohangaben (Höhe, Winkel, Empfänger …) |
 | `modell.py` | Pass-Auswahl, Zonen, Merkmale von Modell A und Zonenmodell, Leave-one-match-out |
