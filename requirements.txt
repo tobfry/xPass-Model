@@ -1,0 +1,16 @@
+# Daten laden (DFL/Sportec Open Data)
+kloppy>=3.19,<4
+
+# Datenaufbereitung und Modellierung
+pandas>=2.0
+numpy>=1.26
+scikit-learn>=1.4
+statsmodels>=0.14
+
+# Visualisierung
+matplotlib>=3.8
+mplsoccer>=1.4
+
+# Notebooks
+jupyter
+ipykernel
